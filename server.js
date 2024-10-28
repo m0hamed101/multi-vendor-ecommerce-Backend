@@ -165,7 +165,7 @@ dbConnect()
 app.use(function (req, res, next) {
     const allowedOrigins = [process.env.FRONTEND, process.env.TESTHOST,process.env.DASHBOARD];
     const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
+    if (allowedOrigins.includes(origin) || origin === '*') {
         res.header('Access-Control-Allow-Origin', origin);
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         res.header('Access-Control-Allow-Credentials', true);
